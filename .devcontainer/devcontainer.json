@@ -1,0 +1,8 @@
+{
+  "name": "Node.js Codespace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:latest",
+  "features": {
+    "node": "latest"
+  },
+  "postCreateCommand": "npm install"
+}
