@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { ThemeProvider } from './contexts/ThemeContext';
+import  {store}  from './contexts/redux/store';
+import CounterBasic from './components/Counter/CounterBasic';
+import ThemeToggler from './components/ThemeToggler';
+import TodoApp from './components/TodoApp/TodoApp';
+import CounterRedux from './components/Counter/CounterRedux';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider>
+        <div className="App">
+          <h1>React State Management Learning Project</h1>
+          
+          <section>
+            <h2>1. useState Hook</h2>
+            <CounterBasic />
+          </section>
+          
+          <section>
+            <h2>2. useContext Hook</h2>
+            <ThemeToggler />
+          </section>
+          
+          <section>
+            <h2>3. useReducer Hook</h2>
+            <TodoApp />
+          </section>
+          
+          <section>
+            <h2>4. Redux Toolkit</h2>
+            <CounterRedux />
+          </section>
+        </div>
+      </ThemeProvider>
+    </Provider>
   );
 }
 
